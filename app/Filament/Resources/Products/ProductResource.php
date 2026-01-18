@@ -20,6 +20,11 @@ use Filament\Forms\Components\{
     FileUpload,
     Textarea
 };
+use Filament\Tables\Columns\{
+    TextColumn,
+    IconColumn,
+    ImageColumn
+};
 use App\Models\AttributeValue;
 
 class ProductResource extends Resource
@@ -78,7 +83,38 @@ class ProductResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return ProductsTable::configure($table);
+        return $table->columns([
+            ImageColumn::make('image')
+                ->label('Image')
+                ->label('Attēls'),
+
+            TextColumn::make('name')
+                ->searchable()
+                ->sortable()
+                ->label('Nosaukums'),
+
+            TextColumn::make('sku')
+                ->sortable()
+                ->label('SKU'),
+
+            TextColumn::make('price')
+                ->money('EUR')
+                ->label('Cena'),
+
+            TextColumn::make('memory.value')
+                ->label('Atmiņa'),
+
+            TextColumn::make('color.value')
+                ->label('Krāsa')
+                ->placeholder('-'),
+
+            TextColumn::make('category.name')
+                ->label('Kategorija'),
+
+            IconColumn::make('status')
+                ->boolean()
+                ->label('Pieejams'),
+        ]);
     }
 
     public static function getRelations(): array

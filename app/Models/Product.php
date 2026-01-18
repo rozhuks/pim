@@ -22,4 +22,14 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function memory()
+    {
+        return $this->belongsTo(AttributeValue::class, 'memory_id');
+    }
+
+    public function color()
+    {
+        return $this->belongsTo(AttributeValue::class, 'color_id');
+    }
 }
