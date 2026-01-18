@@ -32,7 +32,7 @@ class AttributeValueResource extends Resource
                 ->required(),
 
             TextInput::make('value')
-                ->label('Value')
+                ->label('Vērtība')
                 ->required(),
         ]);
     }
@@ -45,7 +45,7 @@ class AttributeValueResource extends Resource
                 ->sortable(),
 
             TextColumn::make('value')
-                ->label('Value')
+                ->label('Vērtība')
                 ->sortable()
                 ->searchable(),
         ]);
