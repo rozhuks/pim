@@ -25,6 +25,7 @@ use Filament\Tables\Columns\{
     IconColumn,
     ImageColumn
 };
+use Filament\Tables\Filters\SelectFilter;
 use App\Models\AttributeValue;
 
 class ProductResource extends Resource
@@ -114,6 +115,26 @@ class ProductResource extends Resource
             IconColumn::make('status')
                 ->boolean()
                 ->label('Pieejams'),
+            ])
+                ->filters([
+            SelectFilter::make('status')
+                ->label('Pieejams')
+                ->options([
+                    1 => 'Pieejams',
+                    0 => 'Nav Pieejams',
+                ]),
+
+            SelectFilter::make('category_id')
+                ->label('Kategorija')
+                ->relationship('category', 'name'),
+
+            SelectFilter::make('memory_id')
+                ->label('Atmiņa')
+                ->relationship('memory', 'value'),
+
+            SelectFilter::make('color_id')
+                ->label('Krāsa')
+                ->relationship('color', 'value'),
         ]);
     }
 
