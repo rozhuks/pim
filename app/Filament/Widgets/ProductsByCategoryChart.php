@@ -9,7 +9,7 @@ class ProductsByCategoryChart extends ChartWidget
 {
     public function getHeading(): string
     {
-        return 'Products by category';
+        return 'Visi Produkti';
     }
 
     protected function getData(): array
@@ -19,9 +19,9 @@ class ProductsByCategoryChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Products',
+                    'label' => 'Produkti',
                     'data' => $categories->pluck('products_count'),
-                    'backgroundColor' => '#3b82f6',
+                    'backgroundColor' => '#f6be3b',
                 ],
             ],
             'labels' => $categories->pluck('name'),
