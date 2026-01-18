@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Produ12cts';
+    }
+
     protected $fillable = [
         'name',
         'sku',

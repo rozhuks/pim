@@ -34,8 +34,8 @@ class ProductResource extends Resource
 {
     protected static ?string $model = Product::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::ArchiveBox;
+    
     public static function form(Schema $schema): Schema
     {
         return $schema->schema([
@@ -132,10 +132,6 @@ class ProductResource extends Resource
             SelectFilter::make('memory_id')
                 ->label('Atmiņa')
                 ->relationship('memory', 'value'),
-
-            SelectFilter::make('color_id')
-                ->label('Krāsa')
-                ->relationship('color', 'value'),
         ]);
     }
 

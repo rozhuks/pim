@@ -28,11 +28,11 @@ class CategoryResource extends Resource
     {
         return $schema->schema([
             TextInput::make('name')
-                ->label('Category name')
+                ->label('Kategorijas Nosaukums')
                 ->required(),
 
             Select::make('parent_id')
-                ->label('Parent category')
+                ->label('Vecāku Kategorija')
                 ->relationship('parent', 'name')
                 ->searchable()
                 ->nullable(),
@@ -43,12 +43,12 @@ class CategoryResource extends Resource
     {
         return $table->columns([
             TextColumn::make('name')
-                ->label('Name')
+                ->label('Nosakumus')
                 ->sortable()
                 ->searchable(),
 
             TextColumn::make('parent.name')
-                ->label('Parent category')
+                ->label('Vecāku Kategorija')
                 ->placeholder('-'),
         ]);
     }
