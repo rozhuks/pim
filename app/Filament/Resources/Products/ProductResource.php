@@ -28,6 +28,7 @@ use Filament\Tables\Columns\{
 use Filament\Tables\Filters\SelectFilter;
 use App\Models\AttributeValue;
 use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\ToggleColumn;
 
 class ProductResource extends Resource
 {
@@ -113,13 +114,8 @@ class ProductResource extends Resource
             TextColumn::make('category.name')
                 ->label('Kategorija'),
 
-            BadgeColumn::make('status')
-                ->label('Status')
-                ->colors([
-                    'success' => true,
-                    'danger' => false,
-                ])
-                ->formatStateUsing(fn (bool $state) => $state ? 'Pieejams' : 'Nav Pieejams'),
+            ToggleColumn::make('status')
+                ->label('Pieejamība'),
             ])
                 ->filters([
             SelectFilter::make('status')
